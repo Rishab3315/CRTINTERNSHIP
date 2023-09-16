@@ -1,0 +1,39 @@
+pip install nltk pandas
+
+
+import nltk
+import pandas as pd
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+nltk.download('vader_lexicon')
+
+
+df = pd.read_csv('chat_dataset.csv')  # Replace 'your_data.csv' with your file path
+df
+
+
+sentiment_analyzer = SentimentIntensityAnalyzer()
+
+
+df['Sentiment'] = df['message'].apply(lambda x: sentiment_analyzer.polarity_scores(x))
+
+
+import nltk
+import pandas as pd
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+nltk.download('vader_lexicon')
+
+# Read your data into a DataFrame
+df = pd.read_csv('chat_dataset.csv')  # Replace 'your_data.csv' with your file path
+
+# Initialize the sentiment analyzer
+sentiment_analyzer = SentimentIntensityAnalyzer()
+
+# Perform sentiment analysis on the text data and add sentiment scores to the DataFrame
+df['Sentiment'] = df['message'].apply(lambda x: sentiment_analyzer.polarity_scores(x))
+
+# Display the DataFrame with sentiment scores
+
+
+df
+
+
